@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Голубев Андрей — Fullstack-разработчик</title>
+<style>
+  :root {
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --text: #1a202c;
+    --muted: #64748b;
+    --accent: #2563eb;
+    --accent-soft: #eff6ff;
+    --border: #e2e8f0;
+    --tag-bg: #f1f5f9;
+    --tag-text: #334155;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 40px 16px;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    padding: 48px;
+  }
+
+  /* Header */
+  header {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .contacts a {
+    color: var(--muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .contacts a:hover { color: var(--accent); }
+
+  .contacts .icon { font-size: 15px; }
+
+  /* Sections */
+  section { margin-bottom: 36px; }
+
+  h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-soft);
+  }
+
+  h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  h3 a {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  h3 a:hover { color: var(--accent); }
+
+  .job {
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .job:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .job-header { margin-bottom: 10px; }
+
+  .role {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .dates {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .job p {
+    font-size: 14.5px;
+    color: #334155;
+    margin-bottom: 10px;
+  }
+
+  .job ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .job ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 5px;
+  }
+
+  .job ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  /* Tech stack */
+  .stack {
+    font-size: 13px;
+    color: var(--muted);
+    background: var(--accent-soft);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .stack strong { color: var(--accent); }
+
+  /* About */
+  .about {
+    font-size: 15px;
+    color: #334155;
+  }
+
+  /* Education */
+  .edu-school {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .edu-degree {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .skill-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .skill-group h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 12.5px;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+
+  footer {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    body { padding: 16px 8px; }
+    .container { padding: 24px 20px; border-radius: 12px; }
+    h1 { font-size: 24px; }
+    .subtitle { font-size: 15px; }
+    .contacts { font-size: 13px; }
+  }
+
+  /* Print */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .container { box-shadow: none; padding: 0; max-width: 100%; }
+    .job { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <h1>Голубев Андрей</h1>
+    <div class="subtitle">Fullstack-разработчик (PHP / Laravel)</div>
+    <div class="contacts">
+      <a href="tel:+79154356397"><span class="icon">📞</span>+7 (915) 435-63-97</a>
+      <a href="mailto:andrey.b.golubev@gmail.com"><span class="icon">✉️</span>andrey.b.golubev@gmail.com</a>
+      <a href="https://t.me/andrey_looks_for_a_job" target="_blank"><span class="icon">💬</span>@andrey_looks_for_a_job</a>
+      <a href="https://max.ru/u/f9LHodD0cOLnSC2Rc6kVAJQP6D0v_N6vW9408kDciBCHhxJuXkVY3bCmSNA" target="_blank"><span class="icon">🌐</span>Max</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section>
+    <h2>Обо мне</h2>
+    <p class="about">
+      Fullstack-разработчик с 7+ годами коммерческого опыта. Работал над проектами разного масштаба — от внутренних CMS и мобильных API до высоконагруженных платформ и SaaS-сервисов. Умею вести задачи от проработки требований до релиза: проектирование решений, разработка backend и frontend, интеграции с внешними сервисами, рефакторинг и поддержка кодовой базы. Предпочитаю понимать систему целиком, а не только свою часть, и поддерживать качество кода в команде. Основной стек: PHP (Laravel, Yii2), JavaScript (Vue.js, Alpine.js), MySQL, PostgreSQL.
+
+
+    </p>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <h2>Опыт работы</h2>
+
+    <div class="job">
+      <div class="job-header">
+        <h3><a href="https://taxicrm.ru/" target="_blank">NevaSoft</a> — Санкт-Петербург</h3>
+        <div class="role">Ведущий Fullstack-разработчик</div>
+        <div class="dates">Февраль 2025 — Декабрь 2025 (11 месяцев)</div>
+      </div>
+      <p>Принимал участие в полном переписывании с нуля CRM-платформы для таксопарков, отвечая за архитектурные решения и реализацию ключевых компонентов системы.</p>
+      <ul>
+        <li>Спроектировал архитектуру новой версии CRM-платформы: структуру проекта, взаимодействие компонентов и REST API.</li>
+        <li>Разработал backend на Laravel и frontend на Alpine.js, реализовал ключевую бизнес-логику.</li>
+        <li>Контейнеризировал приложение с помощью Docker, участвовал в построении CI/CD-процессов.</li>
+        <li>Внедрил статический анализ кода (PHPStan) и unit-тестирование.</li>
+        <li>Проводил code review, участвовал в развитии инженерных практик команды.</li>
+        <li>После формирования команды — техническое сопровождение разработки и помощь коллегам в реализации архитектурных решений.</li>
+      </ul>
+      <div class="stack"><strong>Стек:</strong> PHP, Laravel, Alpine.js, MySQL, Docker, GitLab CI/CD, PHPStan</div>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <h3><a href="https://taxicrm.ru/" target="_blank">NevaSoft</a> — Санкт-Петербург</h3>
+        <div class="role">Fullstack-разработчик</div>
+        <div class="dates">Август 2024 — Февраль 2025 (7 месяцев)</div>
+      </div>
+      <p>Разрабатывал платформу для автоматизации международных платежей и сопровождения внешнеторговых сделок. Участвовал в развитии backend, frontend и API.</p>
+      <ul>
+        <li>Разрабатывал новую функциональность backend и frontend приложения.</li>
+        <li>Проектировал и разрабатывал REST API.</li>
+        <li>Реализовывал бизнес-логику платформы.</li>
+        <li>Разрабатывал пользовательские интерфейсы с использованием JavaScript и Laravel Orchid.</li>
+        <li>Интегрировал платформу с внешними сервисами (BlockPurse).</li>
+        <li>Оптимизировал производительность, исправлял дефекты и рефакторил существующий код.</li>
+        <li>Проводил code review и участвовал в командной разработке.</li>
+      </ul>
+      <div class="stack"><strong>Стек:</strong> PHP, Laravel, Laravel Orchid, JavaScript, MySQL, Docker</div>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <h3>Фриланс и проектная работа</h3>
+        <div class="role">Fullstack-разработчик</div>
+        <div class="dates">Июль 2022 — Июнь 2024 (2 года)</div>
+      </div>
+      <ul>
+        <li>Дорабатывал SaaS-платформу для автоматизации взаимодействия поставщиков, оптовиков и ритейлеров FMCG-рынка Австралии.</li>
+        <li>Разрабатывал приложения для Битрикс24 для компаний из сферы недвижимости и девелопмента.</li>
+        <li>Разработал сервис автоматического поиска промокодов с использованием Selenium и Chrome DevTools Protocol.</li>
+      </ul>
+      <div class="stack"><strong>Стек:</strong> PHP, Laravel, Vue.js, Element UI, Битрикс24, MySQL, Selenium, Chrome DevTools Protocol</div>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <h3><a href="https://perfluence.net/" target="_blank">Perfluence</a> — Москва</h3>
+        <div class="role">Fullstack-разработчик</div>
+        <div class="dates">Май 2021 — Апрель 2022 (1 год)</div>
+      </div>
+      <p>Разрабатывал и поддерживал функциональность платформы performance-маркетинга для блогеров, внутренней CMS и мобильного приложения.</p>
+      <ul>
+        <li>Разрабатывал новую функциональность пользовательской части платформы и внутренней CMS.</li>
+        <li>Интегрировал внешние сервисы (Facebook, Instagram, Twitch, YouTube, VK, Дзен).</li>
+        <li>Проектировал и разрабатывал API для мобильного приложения.</li>
+        <li>Разрабатывал Telegram-ботов для автоматизации внутренних процессов.</li>
+        <li>Рефакторил существующий код и оптимизировал производительность.</li>
+      </ul>
+      <div class="stack"><strong>Стек:</strong> PHP, Laravel, MySQL, Redis, Docker</div>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <h3>BelkaCar — Москва</h3>
+        <div class="role">Бэкенд-разработчик</div>
+        <div class="dates">Апрель 2020 — Июнь 2020 (3 месяца)</div>
+      </div>
+      <p>Участвовал в развитии микросервисной платформы каршеринга, работая с сервисом интеграции с государственными регуляторами и внутренними сервисами системы.</p>
+      <ul>
+        <li>Разрабатывал и поддерживал backend-функциональность на Laravel.</li>
+        <li>Реализовывал продуктовые задачи, исправлял дефекты и развивал существующие сервисы.</li>
+        <li>Рефакторил legacy-код и покрывал функциональность unit-тестами.</li>
+        <li>Анализировал и документировал взаимодействие микросервисов (REST API, PostgreSQL, Redis, Kafka).</li>
+        <li>Оптимизировал производительность сервисов и устранял узкие места (включая оптимизацию алгоритмов работы с Redis).</li>
+        <li>Разрабатывал и поддерживал API для внутренних сервисов и приложения для водителей.</li>
+        <li>Участвовал в разработке функциональности, связанной с обработкой телеметрии автомобилей.</li>
+      </ul>
+      <div class="stack"><strong>Стек:</strong> PHP, Laravel, PostgreSQL, Redis, Kafka, Docker, REST API, PHPUnit</div>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <h3><a href="https://manychat.com/" target="_blank">ManyChat</a> — Москва</h3>
+        <div class="role">Бэкенд-разработчик</div>
+        <div class="dates">Ноябрь 2017 — Август 2019 (1 год 10 месяцев)</div>
+      </div>
+      <p>Разрабатывал backend платформы для создания чат-ботов и автоматизации маркетинга в Facebook Messenger. Участвовал в развитии продукта, проектировании публичного API и реализации интеграций.</p>
+      <ul>
+        <li>Разрабатывал новую функциональность backend-платформы.</li>
+        <li>Проектировал и разрабатывал REST API для сторонних разработчиков.</li>
+        <li>Разрабатывал и поддерживал интеграции с внешними сервисами (Facebook, HubSpot, Google Drive, ConvertKit, Zapier).</li>
+        <li>Реализовывал механизмы импорта/экспорта данных, синхронизации с внешними API.</li>
+        <li>Разрабатывал бизнес-логику обработки сообщений и автоматизированных сценариев чат-ботов.</li>
+        <li>Работал с распределенной обработкой задач на базе Redis и очередей.</li>
+        <li>Рефакторил код, покрывал функциональность тестами и поддерживал качество кодовой базы.</li>
+        <li>Участвовал в проектировании технических решений и обязательном cross-code review.</li>
+      </ul>
+      <div class="stack"><strong>Стек:</strong> PHP, Yii2, PostgreSQL, Redis, Elasticsearch, REST API</div>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <h3><a href="https://liot.mipt.ru/" target="_blank">ЛИОТ МФТИ</a> — Москва</h3>
+        <div class="role">Бэкенд-разработчик</div>
+        <div class="dates">Ноябрь 2016 — Ноябрь 2017 (1 год 1 месяц)</div>
+      </div>
+      <p>Разрабатывал backend для образовательной платформы МФТИ, включающей сайт, мобильное приложение и внутренние сервисы управления контентом.</p>
+      <ul>
+        <li>Разрабатывал API для мобильного приложения.</li>
+        <li>Разрабатывал и поддерживал CMS, состоящую из нескольких сервисов для управления видеолекциями, конспектами, временной разметкой и метаданными.</li>
+        <li>Разрабатывал backend-функциональность образовательного портала.</li>
+        <li>Разрабатывал frontend-функциональность для отдельных разделов сайта.</li>
+        <li>Реализовывал продуктовые задачи и развивал пользовательский функционал.</li>
+        <li>Разрабатывал API для мобильного приложения, позволяющего студентам задавать вопросы лектору во время лекции.</li>
+      </ul>
+      <div class="stack"><strong>Стек:</strong> PHP, Yii2, MySQL, RabbitMQ, Apache</div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <h2>Образование</h2>
+    <div class="edu-school">Московский физико-технический институт (Государственный университет), Долгопрудный</div>
+    <div class="edu-degree">Бакалавр общей и прикладной физики | 2018</div>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <h2>Навыки</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Языки программирования</h4>
+        <div class="tags">
+          <span class="tag">PHP</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span>
+          <span class="tag">Golang</span><span class="tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Фреймворки и библиотеки</h4>
+        <div class="tags">
+          <span class="tag">Laravel</span><span class="tag">Yii2</span><span class="tag">Vue.js</span>
+          <span class="tag">Alpine.js</span><span class="tag">Laravel Orchid</span><span class="tag">Element UI</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Базы данных</h4>
+        <div class="tags">
+          <span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span>
+          <span class="tag">Elasticsearch</span><span class="tag">Sphinx</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Инструменты и технологии</h4>
+        <div class="tags">
+          <span class="tag">Docker</span><span class="tag">Git</span><span class="tag">GitLab CI</span>
+          <span class="tag">GitHub CI</span><span class="tag">REST API</span><span class="tag">Kafka</span>
+          <span class="tag">RabbitMQ</span><span class="tag">Nginx</span><span class="tag">Apache</span>
+          <span class="tag">Selenium</span><span class="tag">Chrome DevTools Protocol</span><span class="tag">Битрикс24</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Методологии</h4>
+        <div class="tags">
+          <span class="tag">ООП</span><span class="tag">Управление командой</span><span class="tag">Code Review</span>
+          <span class="tag">CI/CD</span><span class="tag">Unit-тестирование</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Языки</h4>
+        <div class="tags">
+          <span class="tag">Русский (родной)</span><span class="tag">Английский (B2)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Резюме обновлено: <span id="date"></span>
+  </footer>
+
+</div>
+
+<script>
+  // Автоматическая дата обновления
+  document.getElementById('date').textContent = new Date().toLocaleDateString('ru-RU', {
+    year: 'numeric', month: 'long', day: 'numeric'
+  });
+</script>
+</body>
+</html>
